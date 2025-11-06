@@ -30,7 +30,7 @@ def download_items(session, valid_types, item_search_results, file_extenstion):
         if (p := f.select_one("p")) and p.get_text(strip=True).lower() in valid_types
     ]
     
-    for file in filtered_files[:2]:
+    for file in filtered_files:
         url = download_url(file.get("href"))
         file_name = file.get_text(strip=True)
         file_path = os.path.join(DOWNLOAD_DIR, item_name, file_name + file_extenstion)
@@ -46,7 +46,7 @@ def download_items(session, valid_types, item_search_results, file_extenstion):
 
 while True:
     resp = session.get(collection_url(page_number), timeout=30)
-    print(f'❯❯❯❯❯❯❯❯❯❯❯❯ Page {page_number} HTTP status:', resp.status_code)
+    print(f'⭐ Page {page_number} HTTP status:', resp.status_code)
     resp.raise_for_status()
 
     soup = BeautifulSoup(resp.text, "html.parser")
@@ -59,7 +59,7 @@ while True:
 
     items = search_results.select(f"div[id^='{POST_ID}']")
 
-    for item in items[:2]:
+    for item in items:
         link_tag = item.select_one("a")
         item_name = item.select_one("h5").get_text(strip=True)
         if not link_tag:
