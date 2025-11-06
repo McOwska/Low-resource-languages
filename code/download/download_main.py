@@ -22,8 +22,6 @@ session.headers.update({
     "Accept-Language": "en-US,en;q=0.9,pl;q=0.8",
 })
 
-page_number = FIRST_PAGE
-
 def download_items(session, valid_types, item_search_results, file_extenstion):
     filtered_files = [
         f.select_one("a") for f in item_search_results.select(f"div[id^='{POST_ID}']")
@@ -43,6 +41,8 @@ def download_items(session, valid_types, item_search_results, file_extenstion):
             f.write(file_resp.content)
 
         print("✅ Saved:", file_path)
+
+page_number = FIRST_PAGE
 
 while True:
     resp = session.get(collection_url(page_number), timeout=30)
