@@ -6,7 +6,7 @@ from urls import download_url, collection_url
 FIRST_PAGE = 1
 SEARCH_RESULTS_ID = 'search-results'
 POST_ID = 'post-'
-DOWNLOAD_DIR = "../data/v1"
+DOWNLOAD_DIR = "../data/6_11_2025"
 VALID_AUDIOS = {"wave", "wav", "audio"}
 AUDIO_EXTENSION = '.mp3'
 VALID_TG = {""}
