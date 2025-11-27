@@ -49,7 +49,7 @@ def process_text(text, f_remove_dialogs=True, f_remove_brackets=True, f_remove_a
     if f_remove_diacretics:
         text = remove_diacritics(text)
     
-    return text
+    return text.strip()
     
 
 def process(file_name, folder_path, out_f):
