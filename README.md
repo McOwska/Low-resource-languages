@@ -11,3 +11,7 @@
 | Swahili language token  |   |fine-tuning (CV)   |fine-tuning (CV + elar)   |fine-tuning (elar)   |
 | Undefined language token  |   |fine-tuning (CV)   |fine-tuning (CV + elar)   |fine-tuning(elar)   |
 
+## Ideas
+- new language token?
+- 
+
