@@ -37,7 +37,7 @@ def remove_diacritics(text):
     without_marks = "".join(ch for ch in normalized if not unicodedata.combining(ch))
     return unicodedata.normalize("NFC", without_marks)
 
-def process_text(text, f_remove_dialogs=True, f_remove_brackets=True, f_remove_alternatives=True, f_remove_interpunction=True, f_remove_diacretics=True):
+def process_text(text, f_remove_dialogs=True, f_remove_brackets=True, f_remove_alternatives=True, f_remove_interpunction=True, f_remove_diacretics=True, f_lower_case=True):
     if f_remove_dialogs:
         text = remove_dialog_annotations(text)
     if f_remove_brackets:
@@ -48,6 +48,8 @@ def process_text(text, f_remove_dialogs=True, f_remove_brackets=True, f_remove_a
         text = remove_interpunction(text)
     if f_remove_diacretics:
         text = remove_diacritics(text)
+    if f_lower_case:
+        text = text.lower()
     
     return text.strip()
     
