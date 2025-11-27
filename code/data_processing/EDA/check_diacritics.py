@@ -1,3 +1,7 @@
+"""
+Some exploration on the diatrics usage in transcriptions.
+"""
+
 import unicodedata
 import collections
 import sys

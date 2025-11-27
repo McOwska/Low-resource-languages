@@ -1,3 +1,8 @@
+"""
+Creates (and saves to a txt file) list of all directories containing non-empty annotated intervals together with summed duration of intervals.
+Helper for subsets devision.
+"""
+
 import os
 import re
 import textgrid
@@ -34,10 +39,6 @@ def load_audio_for_file(folder_path, file_name):
     return audio, sr
 
 def get_nonempty_asmjeeg_duration_for_file(file_name, folder_path):
-    """
-    Zwraca sumę długości (w sekundach) niepustych intervali z warstwy Asmjeeg
-    dla jednego pliku (TextGrid + audio). Jeśli brak audio – zwraca 0.
-    """
     tg_path = os.path.join(folder_path, file_name + '.TextGrid')
     if not os.path.exists(tg_path):
         print("NO TEXTGRID FILE:", tg_path)
@@ -62,7 +63,6 @@ def get_nonempty_asmjeeg_duration_for_file(file_name, folder_path):
         if not re.match(tier_name_pattern, tier.name):
             continue
 
-        # tylko niepuste intervale (jest transkrypcja Asmjeeg)
         non_empty_intervals = [interval for interval in tier.intervals if interval.mark.strip()]
         if not non_empty_intervals:
             continue
@@ -70,7 +70,6 @@ def get_nonempty_asmjeeg_duration_for_file(file_name, folder_path):
         for interval in non_empty_intervals:
             start, end = interval.minTime, interval.maxTime
 
-            # analogicznie jak w Twoim skrypcie – sprawdzamy, czy faktycznie jest audio
             start_sample = int(start * sr)
             end_sample = int(end * sr)
             audio_segment = audio[start_sample:end_sample]
@@ -79,11 +78,9 @@ def get_nonempty_asmjeeg_duration_for_file(file_name, folder_path):
                 print("EMPTY AUDIO SEGMENT:", file_name, start, end)
                 continue
 
-            # długość segmentu w sekundach
             seg_duration = len(audio_segment) / sr
             total_duration += seg_duration
 
-        # zakładamy tylko jeden tier z daną nazwą – można wyjść z pętli
         break
     print('total', total_duration)
     return total_duration
@@ -112,7 +109,6 @@ def main():
                     file_name, inner_path
                 )
 
-            # zapis: nazwa_katalogu  <tab>  suma_długości_w_sekundach
             out_f.write(f"{directory}\t{dir_total_duration:.3f}\n")
 
 if __name__ == "__main__":

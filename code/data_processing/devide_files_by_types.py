@@ -1,3 +1,11 @@
+"""
+To get only the transcribed files (.mp3 + .TextGrid pairs) of a proper type.
+
+TYPE - type of a file, the first 3 letters of a file name !works like that only for the Asmjeeg dataset!
+DIR_PATH - directory where all the data is saved. Containes subdirectories with actual audio and trancription files
+OUTPUT_PATH - path to the new directory. Structure of the output dir will be the same as the input
+"""
+
 import os
 import shutil
 

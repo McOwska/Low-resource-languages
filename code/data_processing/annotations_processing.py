@@ -1,3 +1,7 @@
+"""
+Contains functions for procesing the transcription texts.
+"""
+
 import soundfile
 import os
 import csv

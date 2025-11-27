@@ -1,3 +1,15 @@
+"""
+Creates Common Voice like dataset devided into train/test/valid subsets.
+Output dataset.tsv files will contain 4 columns:
+    - path - path to the clip
+    - sentence - transcription in Asmjeeg
+    - eng - English translation (optional)
+    - sw - Swahili transcription (optional)
+
+Subsets are devided accordingly to the total duration of contained non-empty and transcribed CLIPS - the ratio 70/15/15.
+Splits need to be devided earlier using ./EDA/directories_subsets_split.ipynb.
+"""
+
 import annotations_processing
 import os
 import textgrid
