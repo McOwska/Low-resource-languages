@@ -20,7 +20,7 @@ import numpy as np
 import pandas as pd
 
 DIR_PATH = '../../data/6_11_2025_tcc'
-OUT_PATH = '../../data/6_11_2025_tcc_cv'
+OUT_PATH = '../../data/1_02_2026_tcc_cv'
 SPLITS_PATH = '../../data/6_11_2025_tcc_cv/splits'
 
 transcription_tiers_map = {

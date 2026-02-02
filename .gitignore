@@ -3,3 +3,4 @@ preprocessed_data/*
 venv/*
 __pycache__/
 models/*
+venv_lrl/*
