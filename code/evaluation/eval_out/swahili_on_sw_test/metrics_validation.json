@@ -1,0 +1,9 @@
+{
+  "test_loss": 5.649153232574463,
+  "test_wer": 109.52380952380953,
+  "test_cer": 67.83505154639175,
+  "test_combined": 88.67943053510064,
+  "test_runtime": 2.1802,
+  "test_samples_per_second": 4.587,
+  "test_steps_per_second": 0.917
+}
