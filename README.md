@@ -15,6 +15,10 @@ Fine tuning whisper-tiny model.
 | Swahili language token  |   |fine-tuning dataset (CV)   |fine-tuning dataset (CV + elar)   |fine-tuning dataset (elar)   |
 | Undefined language token  |   |fine-tuning dataset (CV)   |fine-tuning dataset (CV + elar)   |fine-tuning dataset (elar)   |
 
+ASIMJEEG - example of a low-resourse language, available data is a result of a language documentation project, not a bantu language -> maybe not as similar to swahili
+
+LUANDA - bantu language, spoken primarly in Uganda, CommonVioce standarized data set available
+
 ## Ideas
 - new language token?
 - 
